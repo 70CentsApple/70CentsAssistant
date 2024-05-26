@@ -15,4 +15,4 @@ key:
           '@Tooltip': 切换整个模组的开关。
       script_path:
         .: 脚本路径
-        '.@Tooltip': 绝对路径或相对路径
+        '@Tooltip': 绝对路径或相对路径
