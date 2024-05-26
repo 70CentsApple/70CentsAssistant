@@ -1,12 +1,11 @@
-package net.apple70cents.templatemod.config;
+package net.apple70cents.assistant70cents.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import net.apple70cents.templatemod.utils.LoggerUtils;
+import net.apple70cents.assistant70cents.utils.LoggerUtils;
 import net.minecraft.client.MinecraftClient;
 
 import java.io.*;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -14,7 +13,7 @@ import java.util.Map;
  */
 public class ConfigStorage {
     public static final File FILE = new File(net.fabricmc.loader.api.FabricLoader.getInstance().getConfigDir()
-                                                                                 .toFile(), "template_mod.json");
+                                                                                 .toFile(), "70CentsAssistant/config.json");
 
     private Map<String, Object> configMap;
 
@@ -48,7 +47,7 @@ public class ConfigStorage {
             Reader reader;
             if (loadDefault) {
                 reader = new InputStreamReader(MinecraftClient.getInstance().getClass().getClassLoader()
-                                                              .getResourceAsStream("assets/templatemod/default_config.json"));
+                                                              .getResourceAsStream("assets/assistant70cents/default_config.json"));
             } else {
                 reader = new BufferedReader(new FileReader(FILE));
             }
@@ -67,11 +66,17 @@ public class ConfigStorage {
     }
 
     public void save() {
-        LoggerUtils.info("[TemplateMod] Saving configs.");
+        File folder = FILE.getParentFile();
+        if (!folder.exists()) {
+            if (!folder.mkdir()) {
+                LoggerUtils.error("[Assistant70Cents] Couldn't make config parent dir.");
+            }
+        }
+        LoggerUtils.info("[Assistant70Cents] Saving configs.");
         try (FileWriter writer = new FileWriter(FILE)) {
             GSON.toJson(configMap, writer);
         } catch (Exception e) {
-            LoggerUtils.error("[TemplateMod] Couldn't save config.");
+            LoggerUtils.error("[Assistant70Cents] Couldn't save config.");
             e.printStackTrace();
         }
     }

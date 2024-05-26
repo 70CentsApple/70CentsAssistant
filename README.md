@@ -1,11 +1,11 @@
-Template Mod for 70CentsApple's Mods
+# 70CentsAssistant
+Runs a script when the game starts.
+Cloth Config is required.
 
-replace:
-```plaintext
-Template Mod
-TemplateMod
-template_mod
-templatemod
-[CHANGE_ME]
-示例模组 // as default zh_cn translation
-```
+|      key       |  args  | description                     |
+|:--------------:|:------:|---------------------------------|
+| `enter_server` | string | Connect to the given address    |
+| `exit_server`  |   -    | Exits current server            |
+|    `await`     |  int   | Sleep for specific milliseconds |
+| `send_message` | string | Send the message to chat        |
+|  `exit_game`   |   -    | Exits Minecraft                 |

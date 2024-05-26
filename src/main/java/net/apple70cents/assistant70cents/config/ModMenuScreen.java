@@ -1,4 +1,4 @@
-package net.apple70cents.templatemod.config;
+package net.apple70cents.assistant70cents.config;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;

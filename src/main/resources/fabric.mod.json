@@ -3,15 +3,15 @@
   "id": "${id}",
   "version": "${version}",
 
-  "name": "Template Mod",
-  "description": "Template Mod [CHANGE_ME]",
+  "name": "70CentsAssistant",
+  "description": "A mod that runs auto scripts.",
   "authors": [
     "70CentsApple"
   ],
   "contact": {
-    "homepage": "https://modrinth.com/mod/[CHANGE_ME]",
-    "sources": "https://github.com/70CentsApple/[CHANGE_ME]",
-    "issues": "https://github.com/70CentsApple/[CHANGE_ME]/issues",
+    "homepage": "https://70centsapple.top/",
+    "sources": "https://github.com/70CentsApple/70CentsAssistant",
+    "issues": "https://github.com/70CentsApple/70CentsAssistant/issues",
     "bilibili": "https://space.bilibili.com/442361724"
   },
 
@@ -21,14 +21,14 @@
   "environment": "client",
   "entrypoints": {
     "main": [
-      "net.apple70cents.templatemod.TemplateMod"
+      "net.apple70cents.assistant70cents.Assistant70Cents"
     ],
     "modmenu": [
-      "net.apple70cents.templatemod.config.ModMenuScreen"
+      "net.apple70cents.assistant70cents.config.ModMenuScreen"
     ]
   },
   "mixins": [
-    "template_mod.mixins.json"
+    "assistant70cents.mixins.json"
   ],
 
   "depends": {
@@ -42,7 +42,7 @@
   "custom": {
     "modmenu": {
       "links": {
-        "modmenu.modrinth": "https://modrinth.com/mod/[CHANGE_ME]"
+
       }
     }
   }

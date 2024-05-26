@@ -6,7 +6,11 @@
             "content": [
                 {
                     "type": "boolean",
-                    "key": "general.TemplateMod.Enabled"
+                    "key": "general.Assistant70Cents.Enabled"
+                },
+                {
+                    "type": "String",
+                    "key": "general.script_path"
                 }
             ]
         }

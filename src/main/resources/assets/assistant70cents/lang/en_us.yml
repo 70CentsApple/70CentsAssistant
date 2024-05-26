@@ -1,0 +1,18 @@
+modmenu.nameTranslation.assistant70cents: 70CentsAssistant
+modmenu.descriptionTranslation.assistant70cents: A mod that runs auto scripts.
+key:
+  assistant70cents:
+    gui:
+      title: 70CentsAssistant Configuration
+      defaultValue: 'Default: %s'
+      variableType: 'Variable Type: %s'
+    category:
+      general: General
+    general:
+      Assistant70Cents:
+        Enabled:
+          .: Enable 70CentsAssistant
+          '@Tooltip': Toggles the entire mod.
+      script_path:
+        .: Script Path
+        '@Tooltip': The path to the script.

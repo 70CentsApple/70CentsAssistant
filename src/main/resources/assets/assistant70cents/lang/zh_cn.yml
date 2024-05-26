@@ -1,0 +1,18 @@
+modmenu.nameTranslation.assistant70cents: 70CentsAssistant
+modmenu.descriptionTranslation.assistant70cents: 自动脚本mod
+key:
+  assistant70cents:
+    gui:
+      title: 70CentsAssistant 配置菜单
+      defaultValue: 默认：%s
+      variableType: 类型：%s
+    category:
+      general: 通用
+    general:
+      Assistant70Cents:
+        Enabled:
+          .: 启用70CentsAssistant
+          '@Tooltip': 切换整个模组的开关。
+      script_path:
+        .: 脚本路径
+        '.@Tooltip': 绝对路径或相对路径

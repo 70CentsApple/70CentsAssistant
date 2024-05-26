@@ -1,0 +1,5 @@
+{
+  "config.version": 1.0,
+  "general.Assistant70Cents.Enabled": true,
+  "general.script_path": "script.txt"
+}
