@@ -30,12 +30,16 @@ public class Executor {
                 MessageUtils.sendToPublicChat(node.arguments.get(0));
                 break;
             case "exit_server":
-                if (mc.world != null) {
-                    mc.disconnect();
-                }
+                // to call this on the render thread
+                mc.execute(() -> {
+                    if (mc.world != null) {
+                        mc.disconnect();
+                    }
+                });
                 break;
             case "exit_game":
-                mc.stop();
+                // to call this on the render thread
+                mc.execute(mc::stop);
                 break;
             case "await":
                 await(Integer.parseInt(node.arguments.get(0)));
