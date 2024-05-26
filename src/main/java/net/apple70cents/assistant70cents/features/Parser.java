@@ -2,11 +2,9 @@ package net.apple70cents.assistant70cents.features;
 
 import net.apple70cents.assistant70cents.Assistant70Cents;
 import net.apple70cents.assistant70cents.config.ConfigStorage;
+import net.apple70cents.assistant70cents.utils.LoggerUtils;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -55,10 +53,19 @@ public class Parser {
         if (!file.isAbsolute()) {
             file = new File(ConfigStorage.FILE.getParentFile(), path);
         }
-        return file;
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+                FileWriter writer = new FileWriter(file);
+                writer.write("# Please write your scripts below:\n");
+                writer.close();
+            } catch (IOException e){
+                LoggerUtils.error("Failed to initialize Script.txt");
+            }
+        } return file;
     }
 
-    public static ASTNode parseScript(){
+    public static ASTNode parseScript() {
         try {
             return parseFile(getFile((String) Assistant70Cents.CONFIG.get("general.script_path")));
         } catch (IOException e) {
