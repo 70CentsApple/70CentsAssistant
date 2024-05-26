@@ -23,11 +23,11 @@ public class Executor {
             case "enter_server":
                 // to call this on the render thread
                 mc.execute(() -> {
-                    ConnectUtils.connect(node.arguments.getFirst());
+                    ConnectUtils.connect(node.arguments.get(0));
                 });
                 break;
             case "send_message":
-                MessageUtils.sendToPublicChat(node.arguments.getFirst());
+                MessageUtils.sendToPublicChat(node.arguments.get(0));
                 break;
             case "exit_server":
                 if (mc.world != null) {
@@ -38,7 +38,7 @@ public class Executor {
                 mc.stop();
                 break;
             case "await":
-                await(Integer.parseInt(node.arguments.getFirst()));
+                await(Integer.parseInt(node.arguments.get(0)));
                 break;
             default:
                 throw new IllegalArgumentException("Unknown command: " + node.command);
