@@ -4,6 +4,11 @@ import net.apple70cents.assistant70cents.utils.ConnectUtils;
 import net.apple70cents.assistant70cents.utils.LoggerUtils;
 import net.apple70cents.assistant70cents.utils.MessageUtils;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.MessageScreen;
+import net.minecraft.client.gui.screen.TitleScreen;
+import net.minecraft.client.gui.screen.multiplayer.MultiplayerScreen;
+import net.minecraft.client.network.ServerInfo;
+import net.minecraft.client.realms.gui.screen.RealmsMainScreen;
 
 public class Executor {
     public void execute(ASTNode node) {
@@ -33,8 +38,10 @@ public class Executor {
                 // to call this on the render thread
                 mc.execute(() -> {
                     if (mc.world != null) {
-                        mc.disconnect();
+                        mc.world.disconnect();
                     }
+                    mc.disconnect();
+                    mc.setScreen(new TitleScreen());
                 });
                 break;
             case "exit_game":
