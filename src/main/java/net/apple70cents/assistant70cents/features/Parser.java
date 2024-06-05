@@ -30,18 +30,20 @@ public class Parser {
     }
 
     private static ASTNode parseLine(String line) {
-        Pattern pattern = Pattern.compile("(\\w+)(?:\\s+\"([^\"]+)\")?(?:\\s+randint\\((\\d+),(\\d+)\\))?");
+        Pattern pattern = Pattern.compile("(\\w+)(?:\\s+\"([^\"]+)\")?(?:\\s+randint\\((\\d+),(\\d+)\\))?(?:\\s+(\\d+))?");
         Matcher matcher = pattern.matcher(line);
         if (matcher.find()) {
-            ASTNode node = new ASTNode(matcher.group(1));
-            if (matcher.group(2) != null) {
+            ASTNode node = new ASTNode(matcher.group(1)); // command([1])
+            if (matcher.group(2) != null) { // direct string args([2])
                 node.addArgument(matcher.group(2));
             }
-            if (matcher.group(3) != null && matcher.group(4) != null) {
+            if (matcher.group(3) != null && matcher.group(4) != null) { // randint([3],[4])
                 long lower = Integer.parseInt(matcher.group(3));
                 long upper = Integer.parseInt(matcher.group(4));
                 long randomValue = new Random().nextLong(upper - lower + 1) + lower;
                 node.addArgument(String.valueOf(randomValue));
+            } else if (matcher.group(5) != null) { // direct int args([5])
+                node.addArgument(matcher.group(5));
             }
             return node;
         }
