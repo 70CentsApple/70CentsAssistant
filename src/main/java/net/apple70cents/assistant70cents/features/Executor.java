@@ -4,11 +4,7 @@ import net.apple70cents.assistant70cents.utils.ConnectUtils;
 import net.apple70cents.assistant70cents.utils.LoggerUtils;
 import net.apple70cents.assistant70cents.utils.MessageUtils;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.MessageScreen;
 import net.minecraft.client.gui.screen.TitleScreen;
-import net.minecraft.client.gui.screen.multiplayer.MultiplayerScreen;
-import net.minecraft.client.network.ServerInfo;
-import net.minecraft.client.realms.gui.screen.RealmsMainScreen;
 
 public class Executor {
     public void execute(ASTNode node) {

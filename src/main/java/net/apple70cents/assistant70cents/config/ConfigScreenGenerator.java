@@ -47,7 +47,13 @@ public class ConfigScreenGenerator {
         }
 
         ConfigBuilder builder = ConfigBuilder.create().setTitle(trans("gui.title"))
-                                             .setDefaultBackgroundTexture(new Identifier("minecraft:textures/block/oak_planks.png"))
+                                             .setDefaultBackgroundTexture(
+                                                     //#if MC>=12100
+                                                     Identifier.of("minecraft:textures/block/oak_planks.png")
+                                                     //#else
+                                                     //$$ new Identifier("minecraft:textures/block/oak_planks.png")
+                                                     //#endif
+                                                      )
                                              .setTransparentBackground(true).setSavingRunnable(Assistant70Cents.CONFIG::save);
         ConfigEntryBuilder eb = builder.entryBuilder();
         for (Object categoryInfo : (List) configGuiMap.get("content")) {
